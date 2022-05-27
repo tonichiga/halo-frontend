@@ -1,0 +1,80 @@
+@import "../../assets/styles/_variables.scss";
+
+.card {
+  width: 100%;
+  padding: 32px;
+  background-color: $background-white;
+  border-radius: 24px;
+}
+
+.category__title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $main-color-text;
+  opacity: 0.5;
+}
+
+.name__title {
+  display: block;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  color: $main-color-text;
+  margin-bottom: 40px;
+}
+
+.price__title {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 72px;
+  letter-spacing: -0.02em;
+  color: $main-color-text;
+  & > span {
+    display: inline-block;
+    font-size: 30px;
+    line-height: 35px;
+    margin-right: 4px;
+  }
+}
+
+.price__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 56px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $accent-color;
+  background: transparent;
+  transition: ease-in-out 150ms;
+  cursor: pointer;
+  &:hover {
+    background: $accent-color;
+    color: $second-text-color;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  .card {
+    width: 352px;
+  }
+}

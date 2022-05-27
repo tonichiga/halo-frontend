@@ -1,0 +1,57 @@
+@import "../../assets/styles/variables";
+
+.container {
+  padding: 40px 10px;
+  background-color: $background-accent-color;
+  min-height: 100vh;
+}
+
+.cards__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 48px;
+  row-gap: 39px;
+  margin-bottom: 85px;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  width: 235px;
+  height: 60px;
+  border-radius: 16px;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: #50daa8;
+  background-color: $background-white;
+  border: none;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+  &:hover {
+    background: #50daa8;
+    color: $second-text-color;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  .container {
+    font-family: $font;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    // height: 100vh;
+    // overflow: hidden;
+    background-color: $background-accent-color;
+  }
+
+  .cards__wrapper {
+    column-gap: 48px;
+  }
+}
