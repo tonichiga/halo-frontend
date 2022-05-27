@@ -3,6 +3,8 @@ import s from "./modal.module.scss";
 import { SvgMaker } from "..";
 import { validateName, validateNumber } from "../../helpers/validate";
 import { CSSTransition } from "react-transition-group";
+import { useDispatch } from "react-redux";
+import { stockOperations } from "../../redux/stock";
 
 const Modal = ({ onClose, data }) => {
   const { category, name, price } = data;
@@ -11,6 +13,7 @@ const Modal = ({ onClose, data }) => {
   const [validateNameStatus, setValidateNameStatus] = useState({});
   const [validateNumberStatus, setValidateNumberStatus] = useState({});
 
+  const dispatch = useDispatch();
   const ref = useRef();
 
   useEffect(() => {
@@ -44,7 +47,15 @@ const Modal = ({ onClose, data }) => {
     setValidateNumberStatus(resultValidNumber);
 
     if (!validateNameStatus.status || !validateNumberStatus.status) return;
-    console.log("Submit: ", data);
+
+    const obj = {
+      ...data,
+      user: inputName,
+      phone: inputNumber,
+    };
+
+    dispatch(stockOperations.sendItemHandler(obj));
+    console.log("Запрос: ", obj);
   };
 
   return (
@@ -73,6 +84,7 @@ const Modal = ({ onClose, data }) => {
               value={inputName}
               onChange={(e) => {
                 handleChangeInput("name", e.target.value);
+                setValidateNameStatus({});
               }}
               onBlur={(e) => {
                 const value = e.target.value;
@@ -116,6 +128,7 @@ const Modal = ({ onClose, data }) => {
               value={inputNumber}
               onChange={(e) => {
                 handleChangeInput("number", e.target.value);
+                setValidateNumberStatus({});
               }}
               onBlur={(e) => {
                 const value = e.target.value;

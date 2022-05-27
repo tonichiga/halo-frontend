@@ -7,8 +7,14 @@ const getItemHandler = () => async (dispatch) => {
   dispatch(stockActions.getItems(items));
 };
 
+const sendItemHandler = (data) => async () => {
+  const result = await apiRequest.sendItem(data);
+  console.log("Ответ :", result);
+};
+
 const stockOperations = {
   getItemHandler,
+  sendItemHandler,
 };
 
 export default stockOperations;
